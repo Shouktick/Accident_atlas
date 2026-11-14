@@ -111,13 +111,19 @@ export default function Speedometer({
               </line>
             );
           })()}
-        <motion.g
-          animate={{ rotate: (bounded / max) * 180 }}
+        <motion.line
+          initial={false}
+          x1="180"
+          y1="178"
+          animate={{
+            x2: point(bounded, 117, max).x,
+            y2: point(bounded, 117, max).y,
+          }}
           transition={{ duration: reduced ? 0 : 0.55, ease: "easeOut" }}
-          style={{ originX: "180px", originY: "178px" }}
-        >
-          <path d="M 180 174 L 63 178 L 180 182 Z" fill="var(--accent)" />
-        </motion.g>
+          stroke="var(--accent)"
+          strokeWidth="3"
+          strokeLinecap="round"
+        />
         <circle
           cx="180"
           cy="178"

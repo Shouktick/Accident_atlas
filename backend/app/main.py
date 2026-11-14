@@ -108,24 +108,37 @@ def create_app(settings=None, model_service=None):
     async def limits(request, call_next):
         request.state.request_id = str(uuid4())
         content_length = request.headers.get("content-length", "0")
-        if not content_length.isdigit() or int(content_length) > settings.max_upload_bytes + 65536:
+        if (
+            len(content_length) > 18
+            or not content_length.isdigit()
+            or int(content_length) > settings.max_upload_bytes + 65536
+        ):
             return failure(request, 413, "UPLOAD_TOO_LARGE", "Request exceeds the upload limit.")
         if request.url.path not in {"/health", "/api/v1/health"}:
             identity = request.headers.get(
                 "authorization", request.client.host if request.client else "anonymous"
             )
-            key = hashlib.sha256(identity.encode()).hexdigest()
             now = time.monotonic()
             if len(buckets) > 10000:
                 buckets.clear()
-            bucket = buckets[key]
-            while bucket and bucket[0] < now - 60:
-                bucket.popleft()
-            if len(bucket) >= settings.requests_per_minute:
-                response = failure(request, 429, "RATE_LIMITED", "Too many requests. Try again in a minute.")
-                response.headers["Retry-After"] = "60"
-                return response
-            bucket.append(now)
+            # A session budget plus a broader peer budget prevents simple token rotation.
+            # Forwarded client IP headers are not trusted from arbitrary direct callers.
+            peer = request.client.host if request.client else "anonymous"
+            for namespace, value, budget in [
+                ("session", identity, settings.requests_per_minute),
+                ("peer", peer, settings.requests_per_minute * 5),
+            ]:
+                key = namespace + hashlib.sha256(value.encode()).hexdigest()
+                bucket = buckets[key]
+                while bucket and bucket[0] < now - 60:
+                    bucket.popleft()
+                if len(bucket) >= budget:
+                    response = failure(
+                        request, 429, "RATE_LIMITED", "Too many requests. Try again in a minute."
+                    )
+                    response.headers["Retry-After"] = "60"
+                    return response
+                bucket.append(now)
         try:
             response = await call_next(request)
         except Exception:

@@ -107,7 +107,7 @@ class ModelService:
                     "limitations",
                 ]
             },
-            "algorithm": "RandomForestClassifier",
+            "algorithm": type(self.model).__name__ if self.model is not None else "Unavailable",
             "classes": [{"id": c, "label": self.label(c)} for c in ids],
             "operational_bounds": {"age": [16, 100], "speed_limit": [10, 140], "vehicles": [1, 20]},
             "category_source": "Existing UI codes; training codebook unavailable",

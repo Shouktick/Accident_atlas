@@ -394,9 +394,7 @@ h3 {
   font-weight: 600;
   line-height: 1.4;
   white-space: nowrap;
-  transition:
-    background 0.15s,
-    transform 0.15s;
+  transition: transform 0.15s;
 }
 .button:hover:not(:disabled) {
   background: color-mix(in srgb, var(--surface-2) 75%, var(--text) 12%);
@@ -407,6 +405,7 @@ h3 {
   border-color: var(--accent);
 }
 .button.primary:hover:not(:disabled) {
+  background: var(--accent);
   filter: brightness(0.95);
 }
 .button.small {

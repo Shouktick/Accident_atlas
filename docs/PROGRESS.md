@@ -25,3 +25,15 @@ Implemented validated prediction forms/presets, genuine result probabilities/loc
 ## Phase 5: intelligence and analytics interfaces
 
 Added genuine local Tree SHAP laboratory with additive waterfall values and explanation-language toggle; session-scoped searchable/filterable/sortable history and deletion/details; model card and documentation; source-backed aggregate/geographic adapters and views. Missing original data causes explicit unavailable states instead of fake charts/coordinates. Observed geographic density heat layers, real global/dependence SHAP, dataset analyses and actual evaluation/model comparison remain data-blocked. Frontend lint, six tests, strict typecheck and production build pass across all ten primary pages.
+
+## Phase 6: release engineering and verification
+
+Updated vulnerable inherited packages, removed unused Plotly/CLI dependencies, added explicit server security headers and bounded gateway handling, retained a separately labelled device GPS/manual simulation tool, corrected gauge geometry and light-theme contrast, and added Docker/Compose, optional Render configuration, complete setup/API/design/model/architecture docs and a GitHub Actions workflow.
+
+Verified locally: 19 backend tests; backend Ruff lint/format; six frontend unit/component tests; ESLint; strict TypeScript; Prettier; production Next.js 16.4.6 build; six desktop/mobile Playwright tests. Browser journeys cover actual prediction/local SHAP, saved details, What-If, speed sweep, CSV with invalid rows, unavailable analytics/map, API outages, responsive overflow, themes, command palette and mobile navigation. Axe WCAG A/AA/2.1 AA checks report zero violations on the tested dashboard dark/light and prediction views at both viewports. This is not a full manual accessibility certification. Desktop/mobile screenshots were inspected and are included in docs/screenshots.
+
+Node npm audit reports zero known vulnerabilities, including development dependencies. Python pip-audit of production requirements reports zero known vulnerabilities. These are registry checks at the audit date, not a guarantee against every security risk. Docker Compose configuration validates; image build/runtime was not verified because the Docker daemon is not running. Lighthouse performance is not yet measured.
+
+All independent implementation phases have been carried out. Data-dependent acceptance remains explicitly blocked: original dataset/codebook, verified severity meanings/units, real held-out performance/model comparison, source dataset analytics, observed India hotspots, and representative global/dependence SHAP. Persistent hosted history additionally needs a durable volume or PostgreSQL; the default deployment reports unverified durability. Cross-validation/calibration, an actual geographic density heat layer, account-based authentication, distributed rate limiting and automatic retention remain documented follow-up work.
+
+Repository push and production rollout are verified separately below; a prepared workflow does not prove GitHub Actions has run.

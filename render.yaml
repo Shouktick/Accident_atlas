@@ -1,0 +1,20 @@
+# Optional setup blueprint. Applying it creates a new free service; no paid resources are requested.
+# The existing Render service can instead retain its GitHub deployment integration.
+services:
+  - type: web
+    name: roadsentinel-api
+    runtime: python
+    plan: free
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT --workers 1
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.13
+      - key: HISTORY_DURABLE
+        value: "false"
+      - key: SHAP_ENABLED
+        value: "true"
+      # Set DATABASE_URL to managed PostgreSQL for durable hosted history.
+      # Free service local disks are ephemeral; the UI reports this honestly.
