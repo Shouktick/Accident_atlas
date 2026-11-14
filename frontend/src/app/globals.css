@@ -93,7 +93,12 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;
-  background-image: radial-gradient(ellipse at top, rgba(49, 46, 129, 0.2), rgb(15, 23, 42), black);
+  background-image: radial-gradient(
+    ellipse at top,
+    rgba(49, 46, 129, 0.2),
+    rgb(15, 23, 42),
+    black
+  );
 }
 
 body ::selection {
