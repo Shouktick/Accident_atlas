@@ -10,7 +10,7 @@ export class ApiError extends Error {
   }
 }
 
-function sessionToken() {
+export function sessionToken() {
   let token = localStorage.getItem("roadsentinel-session");
   if (!token) {
     token = Array.from(crypto.getRandomValues(new Uint8Array(32)), (n) =>

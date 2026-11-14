@@ -17,3 +17,7 @@ Replaced heuristic serving with the pinned original Random Forest and genuine Tr
 ## Phase 3: design system and core interface
 
 Implemented responsive automotive-HUD shell, mobile navigation, collapsible sidebar, command palette, persisted themes, dismissible onboarding, accessible animated SVG speedometer, real activity/readiness dashboard, branded SVG icon/manifest, error/404 views, and a bounded same-origin API gateway. Numeric class distribution comes from server activity. Four frontend tests, lint, typecheck and production build pass; inherited chart-size build warnings are eliminated on the dashboard. Browser visual verification remains pending.
+
+## Phase 4: prediction experience
+
+Implemented validated prediction forms/presets, genuine result probabilities/local SHAP, explicit save/copy/share/export, scenario comparison, backend speed-limit sweeps with actual probability curves, and CSV preview/mapping/upload progress/validation/filtering/pagination/export. Unverified units are not silently converted, and severity risk-reduction claims are withheld. Six frontend tests, lint, strict typecheck, and production build pass. The backend suite remains passing with 19 tests from Phase 2.
