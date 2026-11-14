@@ -13,3 +13,7 @@ Foundation validation: seven backend tests and three frontend tests pass; ESLint
 ## Phase 2: ML and backend
 
 Replaced heuristic serving with the pinned original Random Forest and genuine Tree SHAP. Added readiness, operational validation, bounded batch preview/mapping/export, What-If and speed sweep, session-scoped SQL history, dataset provenance gates, safe errors/rate/body limits, and a reproducible training/evaluation command for future reviewed data. Nineteen backend tests pass against actual artifact inference and SHAP, including additivity, ownership, CSV injection escaping, invalid rows, resource limits, and failure behavior. Backend Ruff passes. Frontend lint/typecheck/test/build passed at Phase 1 and frontend source is unchanged in this backend phase. Dataset-dependent evaluation/comparison/global analytics remain unavailable because the user has no original dataset; no replacement data was substituted.
+
+## Phase 3: design system and core interface
+
+Implemented responsive automotive-HUD shell, mobile navigation, collapsible sidebar, command palette, persisted themes, dismissible onboarding, accessible animated SVG speedometer, real activity/readiness dashboard, branded SVG icon/manifest, error/404 views, and a bounded same-origin API gateway. Numeric class distribution comes from server activity. Four frontend tests, lint, typecheck and production build pass; inherited chart-size build warnings are eliminated on the dashboard. Browser visual verification remains pending.

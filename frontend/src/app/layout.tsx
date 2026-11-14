@@ -1,34 +1,33 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
-import { Sidebar } from "@/components/Sidebar";
-
-const inter = Inter({ subsets: ["latin"] });
-
+import "./roadsentinel.css";
+import Providers from "@/components/platform/Providers";
+import Shell from "@/components/platform/Shell";
 export const metadata: Metadata = {
-  title: "RoadSentinel",
-  description: "AI-Powered Road Accident Severity Prediction Dashboard",
+  title: {
+    default: "RoadSentinel | Road Intelligence",
+    template: "%s | RoadSentinel",
+  },
+  description:
+    "Inspect real road accident severity model responses, compare scenarios, and understand genuine SHAP explanations with transparent limitations.",
+  icons: { icon: "/icon.svg", apple: "/icon.svg" },
+  manifest: "/manifest.webmanifest",
 };
-
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className="dark">
-      <body
-        className={`${inter.className} min-h-screen bg-transparent antialiased pt-16 lg:pt-0`}
-      >
-        <div className="flex h-screen overflow-hidden">
-          {/* Main Sidebar */}
-          <Sidebar />
-
-          {/* Main Content Area */}
-          <main className="flex-1 overflow-y-auto w-full p-4 lg:p-8">
-            <div className="mx-auto max-w-7xl h-full">{children}</div>
-          </main>
-        </div>
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{document.documentElement.dataset.theme=localStorage.getItem('roadsentinel-theme')||'dark'}catch{}`,
+          }}
+        />
+      </head>
+      <body>
+        <Providers>
+          <Shell>{children}</Shell>
+        </Providers>
       </body>
     </html>
   );
