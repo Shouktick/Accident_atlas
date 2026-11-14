@@ -7,15 +7,13 @@ import { RiskMeter } from "./PredictionResult";
 it("validates the prediction form before submitting and keeps model units honest", async () => {
   vi.stubGlobal(
     "fetch",
-    vi
-      .fn()
-      .mockResolvedValue({
-        ok: false,
-        status: 503,
-        json: async () => ({
-          error: { code: "OFFLINE", message: "Unavailable" },
-        }),
+    vi.fn().mockResolvedValue({
+      ok: false,
+      status: 503,
+      json: async () => ({
+        error: { code: "OFFLINE", message: "Unavailable" },
       }),
+    }),
   );
   const submit = vi.fn();
   render(

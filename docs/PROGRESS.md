@@ -21,3 +21,7 @@ Implemented responsive automotive-HUD shell, mobile navigation, collapsible side
 ## Phase 4: prediction experience
 
 Implemented validated prediction forms/presets, genuine result probabilities/local SHAP, explicit save/copy/share/export, scenario comparison, backend speed-limit sweeps with actual probability curves, and CSV preview/mapping/upload progress/validation/filtering/pagination/export. Unverified units are not silently converted, and severity risk-reduction claims are withheld. Six frontend tests, lint, strict typecheck, and production build pass. The backend suite remains passing with 19 tests from Phase 2.
+
+## Phase 5: intelligence and analytics interfaces
+
+Added genuine local Tree SHAP laboratory with additive waterfall values and explanation-language toggle; session-scoped searchable/filterable/sortable history and deletion/details; model card and documentation; source-backed aggregate/geographic adapters and views. Missing original data causes explicit unavailable states instead of fake charts/coordinates. Observed geographic density heat layers, real global/dependence SHAP, dataset analyses and actual evaluation/model comparison remain data-blocked. Frontend lint, six tests, strict typecheck and production build pass across all ten primary pages.
