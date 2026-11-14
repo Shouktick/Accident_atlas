@@ -4,8 +4,15 @@ from typing import Literal
 
 from pydantic import BaseModel, ConfigDict, Field, model_validator
 
-FEATURES = ["Age_of_Driver", "Speed_limit", "Weather_Conditions", "Road_Surface_Conditions",
-            "Light_Conditions", "Vehicle_Type", "Number_of_Vehicles"]
+FEATURES = [
+    "Age_of_Driver",
+    "Speed_limit",
+    "Weather_Conditions",
+    "Road_Surface_Conditions",
+    "Light_Conditions",
+    "Vehicle_Type",
+    "Number_of_Vehicles",
+]
 
 
 class Scenario(BaseModel):
